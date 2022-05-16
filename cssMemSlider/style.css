@@ -95,8 +95,13 @@ p { /*стили для контента*/
     cursor: pointer;
 }
 
-.bar:hover .button { /*интерактивность для переключателей*/
+.bar:hover .button { /*интерактивность для переключателей при наведении*/
     background-color: white;
+    border: 4px solid white;
+}
+
+.bar:active .button { /*интерактивность для переключателей при нажатии*/
+    background-color: transparent;
     border: 4px solid white;
 }
 
@@ -175,3 +180,27 @@ p { /*стили для контента*/
         margin-left: 0;
     }  
 }
+
+/*мобильная версия слайдера*/
+@media (max-width: 846px)  {
+    .content-controls { /*контейнер контента и переключателей*/
+        flex-direction: column-reverse;
+        justify-content: flex-start;
+        align-items: center;
+    } 
+    .content { /*блок контента*/
+        margin-top: 0;
+        align-self: flex-start;
+    }
+    p { /*стили для контента*/
+        font-size: 1.5rem;
+    }
+}
+
+
+
+    
+
+
+
+
