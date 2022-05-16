@@ -44,6 +44,7 @@ input[name="point"] {
 
 .slide {  /*размер одного слайда*/    
     width: 25%;
+    height: 100%;
 }
 
 .slide img { /*стили для картинки слайда*/    
@@ -51,5 +52,51 @@ input[name="point"] {
     max-height: 80%;
     border-radius: 1.875rem;
 }
+
+.content-controls {
+    width: 100%;
+    display:flex;
+    justify-content:space-between;
+    align-items: center;
+    margin-top: 5vh;
+}
+
+.content {
+    width: 100%;
+    display: flex;
+    overflow: hidden;
+}
+
+p {
+    flex-shrink: 0;
+    width: 100%;
+    white-space: nowrap;
+    color: beige;
+    font-size: 40px;
+    font-weight: 700;
+}
+    
+.controls {
+    display:flex;
+    justify-content: flex-end;
+}
+
+.bar {
+    display: flex;
+    align-items: center;
+    width: 4rem;
+    height: 4rem;  
+    cursor: pointer; 
+}
+
+.button {
+    margin: auto;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    border: 2px solid rgb(134, 134, 232);;
+    cursor: pointer;
+}
+
 
 
