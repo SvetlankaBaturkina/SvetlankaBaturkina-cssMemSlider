@@ -182,7 +182,31 @@ p { /*стили для контента*/
 }
 
 /*мобильная версия слайдера*/
+@media (max-width: 968px)  {
+    p { /*стили для контента*/
+        font-size: 2rem;
+    }
+}
 @media (max-width: 846px)  {
+    .bar { /*блок кнопок*/
+        width: 3rem;
+        height: 3rem;  
+    }
+}
+@media (max-width: 760px)  {
+    .bar { /*блок кнопок*/
+        width: 2.5rem;
+        height: 2.5rem;  
+    }
+    .button { /*стили для переключателей*/
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+    p { /*стили для контента*/
+        font-size: 1.65rem;
+    }
+}
+@media (max-width: 641px)  {
     .content-controls { /*контейнер контента и переключателей*/
         flex-direction: column-reverse;
         justify-content: flex-start;
@@ -191,9 +215,6 @@ p { /*стили для контента*/
     .content { /*блок контента*/
         margin-top: 0;
         align-self: flex-start;
-    }
-    p { /*стили для контента*/
-        font-size: 1.5rem;
     }
 }
 
