@@ -1,0 +1,230 @@
+*{
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth; /* чтобы прокрутка происходила плавно */
+    overflow-x: hidden;
+    height: 100vh;          /*для горизонтального*/
+    background-color: rgb(44, 42, 42);
+}
+
+body {  /*общий фон*/                      
+    margin: 0 auto;
+    max-width: 93.75rem;
+}
+
+.container {   /*контейнер страницы*/      
+    max-width: 87.5rem;
+    overflow: hidden;
+    margin: 3% 3% 0 3%;
+}
+
+input {
+    visibility: hidden;
+    height: 0;
+    width: 0;
+    margin: 0;
+    cursor: pointer;
+}
+
+.slides { /*контейнер для слайдов*/      
+    display:flex;
+    overflow:hidden;     
+}
+
+.slide {
+    width: 100%;
+    flex-shrink: 0;
+    border-radius: 1.875rem;
+    overflow:hidden;  
+}
+
+.slide img { /*стили для картинки слайда*/
+    width: 100%;
+    height: 100%;
+}
+  
+.content-controls { /*контейнер контента и переключателей*/
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 4vh;
+}
+
+.content-controls > .content > *{
+    visibility: hidden;
+}
+
+.content { /*блок контента*/
+    width: 100%;
+    display: flex;
+    overflow: hidden;
+}
+
+p { /*стили для контента*/
+    flex-shrink: 0;
+    width: 100%;
+    white-space: nowrap;
+    color: beige;
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.controls { /*блок переключателей*/
+    display:flex;
+    justify-content: flex-end;
+}
+
+.bar { /*блок кнопок*/
+    display: flex;
+    align-items: center;
+    width: 4rem;
+    height: 4rem;  
+    cursor: pointer; 
+}
+
+.button { /*стили для переключателей*/
+    margin: auto;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    border: 4px solid rgb(134, 134, 232);
+    background-color: rgb(134, 134, 232);
+    cursor: pointer;
+}
+
+.bar:hover .button { /*интерактивность для переключателей при наведении*/
+    background-color: white;
+    border: 4px solid white;
+}
+
+.bar:active .button { /*интерактивность для переключателей при нажатии*/
+    background-color: transparent;
+    border: 4px solid white;
+}
+
+/*активный переключатель*/
+#slide1:checked ~ .content-controls > .controls > .bar > .button1 { 
+    background-color: transparent;
+}
+#slide2:checked ~ .content-controls > .controls > .bar > .button2 {
+    background-color: transparent;
+}
+#slide3:checked ~ .content-controls > .controls > .bar > .button3 {
+    background-color: transparent;
+}
+#slide4:checked ~ .content-controls > .controls > .bar > .button4 {
+    background-color: transparent;
+}
+
+/*смена контента*/
+#slide1:checked ~ .content-controls > .content > .content1 {
+    visibility: visible;
+    animation-name: content;
+    animation-duration: 1s;  
+    animation-fill-mode: forwards; 
+}
+#slide2:checked ~ .content-controls > .content > .content2 {
+    visibility: visible;
+    transform: translate(-100%);
+    transition: 1s; 
+}
+#slide3:checked ~ .content-controls > .content > .content3 {
+    visibility: visible;
+    transform: translate(-200%);
+    transition: 1s; 
+}
+#slide4:checked ~ .content-controls > .content > .content4 {
+    visibility: visible;
+    transform: translate(-300%);
+    transition: 1s; 
+}
+
+/*смена слайдов*/
+#slide1:checked ~ .slides > .button1 {
+    animation-name: slide;
+    animation-duration: 1s;  
+    animation-fill-mode: forwards; 
+}
+#slide2:checked ~ .slides > .button2 {
+    transform: translate(-200%);
+    transition: 1s;
+}
+#slide3:checked ~ .slides > .button3 {
+    transform: translate(-300%);
+    transition: 1s;
+}
+#slide4:checked ~ .slides > .button4 {
+    transform: translate(-400%);
+    transition: 1s;
+}
+
+/*аннимация смены слайдов*/
+@keyframes slide {
+    from {
+        margin-left: 0;    
+    }  
+    to {
+        margin-left: -100%;
+    }  
+}
+
+/*аннимация смены контента*/
+@keyframes content {
+    from {
+        margin-left: 100%;    
+    }  
+    to {
+        margin-left: 0;
+    }  
+}
+
+/*мобильная версия слайдера*/
+@media (max-width: 968px)  {
+    p { /*стили для контента*/
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 846px)  {
+    .bar { /*блок кнопок*/
+        width: 3rem;
+        height: 3rem;  
+    }
+}
+
+@media (max-width: 760px)  {
+    .bar { /*блок кнопок*/
+        width: 2.5rem;
+        height: 2.5rem;  
+    }
+    .button { /*стили для переключателей*/
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+    p { /*стили для контента*/
+        font-size: 1.65rem;
+    }
+}
+
+@media (max-width: 641px)  {
+    .content-controls { /*контейнер контента и переключателей*/
+        flex-direction: column-reverse;
+        justify-content: flex-start;
+        align-items: center;
+    } 
+    .content { /*блок контента*/
+        margin-top: 0;
+        align-self: flex-start;
+    }
+}
+
+
+
+    
+
+
+
+
